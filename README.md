@@ -20,9 +20,9 @@
 
 ## Setup host
 1. Install the latest version of [VS Code](https://code.visualstudio.com/);
-2. Add the set of extensions for [remote development] (https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+2. Add the set of extensions for [remote development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 3. Add [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension:
-    - Set the value of 'DOCKER_HOST' variable in the extension settings: `tcp://<docker-host>: 2375`, where the docker-host is your 'Raspberry Pi' with a docker daemon running.
+    - Set the value of 'DOCKER_HOST' variable in the extension settings: `tcp://<docker-host>: 2375`, where 'docker-host' is your 'Raspberry Pi' with a docker daemon running.
 
     _After this step, you should to connect to the 'Raspberry Pi' via SSH using [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) extension to get the public connection key._
 4. Go to the 'Docker' tab in VS Code, which will contain a list of robot's ROS2 running nodes and available images.

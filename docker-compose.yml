@@ -1,29 +1,5 @@
 version: '3'
 services:
-    ros_core:
-        image: ros:kinetic-ros-base
-        container_name: master_node
-        restart: always
-        hostname: catix01
-        network_mode: host
-        ports:
-            - "11311:11311"
-        command: roscore
-
-    camera_node:
-        image: dtur3/r3-raspicam
-        container_name: camera_node
-        restart: always
-        network_mode: host
-        devices:
-            - "/dev/vcsm"
-            - "/dev/vchiq"
-        environment:
-            - "ROS_MASTER_URI=http://catix01:11311"
-        command: roslaunch raspicam_node camerav1_1280x720.launch
-        depends_on:
-            - ros_core
-
     servo_node:
         build: ./ServoNodeDocker
         container_name: servo_node
@@ -31,8 +7,4 @@ services:
         network_mode: host
         devices:
             - "/dev/i2c-1"
-        environment:
-            - "ROS_MASTER_URI=http://catix01:11311"
-        command: rosrun servo_node ServoNode
-        depends_on:
-            - ros_core
+        command: ros2 rosrun servo_node ServoNode

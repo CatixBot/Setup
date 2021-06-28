@@ -1,9 +1,32 @@
 ## Setup 'Raspberry Pi'
-1. [Follow the instruction](https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/) to install 'Ubuntu Server 20.04':
-    - Change '`expire: true`' to '`expire: false`' in 'user-data';
-    - Change default user and its password 'ubuntu' to 'catix-XX', where 'XX' - serial number of your robot.
 
-    _Before installing the OS, it is convenient to set up separate Wi-Fi network, where SSID and password can be, for example - 'CatixNetwork'. Then, in any place where such a network will be deployed, robots are always guaranteed to share the same environment without of additional settings_
+_Before installing the OS, it is convenient to set up separate Wi-Fi network, where SSID and password can be, for example - 'CatixNetwork'. Then, in any place where such a network will be deployed, robots are always guaranteed to share the same environment without of additional settings_
+
+1. Flash your SD card with the latest ['Ubuntu Server 20.04' image](https://ubuntu.com/download/raspberry-pi). You can use ['balenaEtcher'](https://www.balena.io/etcher/) to do it. Remount your SD card to get access to 'network-config' and 'user-data':
+    - Replace any content in 'user-data' with the following:
+    ```
+    # Set your hostname here, the manage_etc_hosts will update the hosts file entries as well
+    hostname: catix-XX
+    manage_etc_hosts: true
+
+    # Add users to the system. Users are added after groups are added.
+    users:
+    - name: catix
+        plain_text_passwd: catix
+        groups: users,docker,video,i2c
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        lock_passwd: false
+
+    ## Reboot to enable Wifi configuration (more details in network-config file)
+    power_state:
+      mode: reboot
+
+    # Enable password authentication with the SSH daemon
+    ssh_pwauth: true
+    ```
+    - There 'catix-XX' should be modified, so 'XX' is the serial number of your robot;
+    - Add Wi-Fi network credentials to 'network-config'.
+
 2. [Follow the instruction](https://docs.docker.com/engine/install/ubuntu/) to install 'Docker' daemon to easily deploy ROS2 nodes.
 3. Configure the docker daemon for port '2375' listening. To do this, create a [configuration file](https://docs.docker.com/config/daemon/) with the following content:
     ```

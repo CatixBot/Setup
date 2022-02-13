@@ -28,15 +28,15 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 
 ## Setup 'Raspberry Pi'
 
-1. [Follow the instruction](https://docs.docker.com/engine/install/ubuntu/) to install docker daemon to easily deploy ROS2 nodes.
-2. Configure the docker daemon to listen port '2375'. To do this, create [/etc/docker/daemon.json](https://docs.docker.com/config/daemon/) with the following content:
+1. Clone this repository and run the setup script
     ```
-    {
-        "hosts": ["unix:///var/run/docker.sock", "tcp://<docker-host>:2375"]
-    }
+    $ git clone https://github.com/CatixBot/Setup.git CatixSetup && cd CatixSetup
+    $ chmod +x ./setup.sh && sudo ./setup.sh
     ```
-
-    _Here '\<docker-host\>' is a hostname or an IP adress of your 'Raspberry Pi'_
+2. Check whether docker has been set up correctly
+    ```
+    $ docker run hello-world
+    ```
 3. Restart for the settings to take effect
     ```
     $ sudo reboot

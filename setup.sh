@@ -27,7 +27,16 @@ sudo usermod -aG docker ${USER}
 # Configure docker daemon to listen external port
 
 DOCKER_IP=`awk '/inet / && $2 != "127.0.0.1"{print $2}' <(ifconfig wlan0)`
-echo "{\"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://${DOCKER_IP}:2375\"]}" | sudo tee /etc/docker/daemon.json
+
+echo \
+"[Service]" \
+"ExecStart=" \
+"ExecStart=/usr/bin/dockerd" | sudo tee /etc/systemd/system/docker.service.d/docker.conf
+
+echo \
+"{" \
+"    \"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://${DOCKER_IP}:2375\"]"
+"}" | sudo tee /etc/docker/daemon.json
 
 # Enable docker system service
 

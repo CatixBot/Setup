@@ -5,6 +5,7 @@
 sudo apt-get update
 
 sudo apt-get install \
+    net-tools \
     ca-certificates \
     curl \
     gnupg \
@@ -27,6 +28,8 @@ sudo usermod -aG docker ${USER}
 # Configure docker daemon to listen external port
 
 DOCKER_IP=`awk '/inet / && $2 != "127.0.0.1"{print $2}' <(ifconfig wlan0)`
+
+sudo mkdir -p /etc/systemd/system/docker.service.d
 
 echo \
 "[Service]" \

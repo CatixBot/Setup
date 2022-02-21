@@ -1,0 +1,25 @@
+#cloud-config
+
+# Set your hostname here, the manage_etc_hosts will update the hosts file entries as well
+hostname: catix-01
+manage_etc_hosts: true
+
+# Add 'catix' user to the system
+users:
+- name: catix
+  groups: users,adm,dialout,audio,netdev,video,plugdev,cdrom,games,input,gpio,spi,i2c,render,sudo
+  shell: /bin/bash
+  lock_passwd: false
+  passwd: $5$ihojHSYfr6$CeIwei03twpONeTQjAHw8BXVzj3PSY5uMeCNtm2tDrC
+
+# Enable password authentication with the SSH daemon
+ssh_pwauth: true
+
+# Set 'US' domain and disable unattended upgrades
+runcmd:
+- sed -i 's/^s*REGDOMAIN=S*/REGDOMAIN=US/' /etc/default/crda || true
+- sed -i 's/"1"/"0"/g' /etc/apt/apt.conf.d/20auto-upgrades
+
+# Reboot to enable Wi-Fi configuration (more details in 'network-config' file)
+power_state:
+  mode: reboot

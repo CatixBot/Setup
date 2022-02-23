@@ -23,7 +23,7 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 3. Add [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension
 4. Set the value of `DOCKER_HOST` variable in 'Docker' extension settings: `tcp://<docker-host>: 2375`, where '\<docker-host\>' is your 'Raspberry Pi' with a docker daemon running.
     
-_After this step, you can connect to the 'Raspberry Pi' via SSH using [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) extension to follow the next steps_
+_After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, password: catix) using [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) extension to follow the next steps_
 
 ---
 
@@ -34,20 +34,20 @@ _After this step, you can connect to the 'Raspberry Pi' via SSH using [Remote-SS
     $ git clone https://github.com/CatixBot/Setup.git CatixSetup && cd CatixSetup
     $ chmod +x ./setup.sh && sudo ./setup.sh
     ```
-2. Check whether docker has been set up correctly
-    ```
-    $ docker run hello-world
-    ```
-3. Restart for the settings to take effect
+2. Restart for the settings to take effect
     ```
     $ sudo reboot
     ```
-4. Check that the docker daemon is running
+3. Check that the docker daemon is running
     ```
     $ systemctl status docker
     ```
-5. If the daemon has 'failed' status, it is possible to print its launching logs to figure out the reason
+4. If the daemon has 'failed' status, it is possible to print its launching logs to figure out the reason
     ```
     $ journalctl -fu docker
+    ```
+5. Check whether docker has been set up correctly by running 'hello-world' image
+    ```
+    $ docker run hello-world
     ```
 6. Go to the 'Docker' tab in VS Code, which contains a list of robot's ROS2 nodes (docker images and containers)

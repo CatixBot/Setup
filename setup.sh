@@ -31,14 +31,14 @@ DOCKER_IP=`awk '/inet / && $2 != "127.0.0.1"{print $2}' <(ifconfig wlan0)`
 
 sudo mkdir -p /etc/systemd/system/docker.service.d
 
-echo \
-"[Service]" \
-"ExecStart=" \
+echo -e \
+"[Service]\n" \
+"ExecStart=\n" \
 "ExecStart=/usr/bin/dockerd" | sudo tee /etc/systemd/system/docker.service.d/docker.conf
 
-echo \
-"{" \
-"    \"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://${DOCKER_IP}:2375\"]"
+echo -e \
+"{\n" \
+"    \"hosts\": [\"unix:///var/run/docker.sock\", \"tcp://${DOCKER_IP}:2375\"]\n" \
 "}" | sudo tee /etc/docker/daemon.json
 
 # Enable docker system service

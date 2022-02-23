@@ -51,3 +51,5 @@ _After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, pa
     $ docker run hello-world
     ```
 6. Go to the 'Docker' tab in VS Code, which contains a list of robot's ROS2 nodes (docker images and containers)
+
+    ### _Finally, it is possible to manage ROS/ROS2 nodes as docker containers_

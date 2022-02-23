@@ -1,4 +1,4 @@
-## Install OS
+## Install 'Ubuntu Server'
 
 _Note! It is supposed to follow this instruction that 'Raspberry Pi' is equipped with Wi-Fi interface ([Raspberry Pi 3B or better](https://en.wikipedia.org/wiki/Raspberry_Pi#Model_comparison))_    
 
@@ -9,9 +9,9 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 3. Open the installed application and select 'Ubuntu Server 20.04.3' to be installed    
 ![alt text](Images/1.png)
 4. Write the image
-5. Download 'user-data' and 'network-config' located in 'Headless' subdirectory
-5. Update hostname in 'user-data', where '01' should be replaced by 'serial number' of your robot
-6. Configure Wi-Fi network credentials in 'network-config' to which the robot to connects to
+5. Download [user-data](https://github.com/CatixBot/Setup/blob/main/Headless/user-data) and [network-config](https://github.com/CatixBot/Setup/blob/main/Headless/network-config)
+5. Update hostname in [user-data](https://github.com/CatixBot/Setup/tree/main/Headless), where '01' should be replaced by 'serial number' of your robot
+6. Configure Wi-Fi network credentials in [network-config](https://github.com/CatixBot/Setup/blob/main/Headless/network-config) to which the robot to connects to
 7. Replace both files in the root of 'system-boot' partition on SD card
 
 ---
@@ -21,7 +21,7 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 1. Install the latest version of [VS Code](https://code.visualstudio.com/)
 2. Add [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension set
 3. Add [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension
-4. Set the value of `DOCKER_HOST` variable in 'Docker' extension settings: `tcp://<docker-host>:2375`, where '\<docker-host\>' is your 'Raspberry Pi' with a docker daemon running.
+4. Set the value of `DOCKER_HOST` variable in 'Docker' extension settings: `tcp://<docker-host>:2375`, where '\<docker-host\>' is your 'Raspberry Pi' with a docker daemon running
     
 _After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, password: catix) using [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) extension to follow the next steps_
 

@@ -21,7 +21,7 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 1. Install the latest version of [VS Code](https://code.visualstudio.com/)
 2. Add [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension set
 3. Add [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension
-4. Set the value of `DOCKER_HOST` variable in 'Docker' extension settings: `tcp://<docker-host>: 2375`, where '\<docker-host\>' is your 'Raspberry Pi' with a docker daemon running.
+4. Set the value of `DOCKER_HOST` variable in 'Docker' extension settings: `tcp://<docker-host>:2375`, where '\<docker-host\>' is your 'Raspberry Pi' with a docker daemon running.
     
 _After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, password: catix) using [Remote-SSH](https://code.visualstudio.com/docs/remote/ssh) extension to follow the next steps_
 

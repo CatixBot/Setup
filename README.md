@@ -1,6 +1,28 @@
-## Install 'Ubuntu Server'
+# 🚀 Getting started guide
 
-_Note! It is supposed to follow this instruction that 'Raspberry Pi' is equipped with Wi-Fi interface ([Raspberry Pi 3B or better](https://en.wikipedia.org/wiki/Raspberry_Pi#Model_comparison))_    
+This guide walks through the process of building instance of **CatixBot** - very simple 4-legged robot for your experiments with kinematics 🦾 and computer vision 📷 (_the project is under development_)
+
+## Electronic components
+
+1. Raspberry Pi equipped with Wi-Fi interface ([Raspberry Pi 3B or better](https://en.wikipedia.org/wiki/Raspberry_Pi#Model_comparison))
+2. Monocular camera compatible with Raspberry Pi (fisheye lenses are better for obstacle avoidance)
+2. 8x MG90S servos
+3. PCA9685 16-channel driver
+5. MPU9250 IMU module 
+6. 2x voltage regulators to power up separately:
+    - PCA9685 connected with 8x servos
+    - Raspberry Pi and other low current components
+
+## Assemble robot
+
+1. Print all parts provided in [3d-printing-model](https://github.com/CatixBot/3d-printing-model) repository
+2. Assemble each part using screws
+2. Install all electronic components on the top of the body
+
+## Setup Raspberry Pi
+
+
+### Install 'Ubuntu Server'
 
 _It is convenient to set up separate Wi-Fi network first. Then, in any place where such a network will be deployed, robots are always guaranteed to share the same environment without additional settings_
 
@@ -16,7 +38,7 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 
 ---
 
-## Setup host
+### Setup host
 
 1. Install the latest version of [VS Code](https://code.visualstudio.com/)
 2. Add [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension set
@@ -27,7 +49,7 @@ _After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, pa
 
 ---
 
-## Setup 'Raspberry Pi'
+### Setup docker
 
 1. Clone this repository and run the setup script
     ```

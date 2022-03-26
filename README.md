@@ -28,12 +28,12 @@ _It is convenient to set up separate Wi-Fi network first. Then, in any place whe
 
 1. Insert SD card (at least 16Gb is recommended)
 2. Install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-3. Open the installed application and select 'Ubuntu Server 20.04.3' to be installed    
+3. Open the installed application and select 'Ubuntu Server 20.04.3' 64-bit to be installed    
 ![alt text](Images/1.png)
 4. Write the image
 5. Download [user-data](https://github.com/CatixBot/Setup/blob/main/Headless/user-data) and [network-config](https://github.com/CatixBot/Setup/blob/main/Headless/network-config)
 5. Update hostname in [user-data](https://github.com/CatixBot/Setup/tree/main/Headless), where '01' should be replaced by 'serial number' of your robot
-6. Configure Wi-Fi network credentials in [network-config](https://github.com/CatixBot/Setup/blob/main/Headless/network-config) to which the robot to connects to
+6. Configure Wi-Fi network credentials in [network-config](https://github.com/CatixBot/Setup/blob/main/Headless/network-config) to which the robot will connect to
 7. Replace both files in the root of 'system-boot' partition on SD card
 
 ---
@@ -53,7 +53,7 @@ _After this step, you can connect to the 'Raspberry Pi' via SSH (user: catix, pa
 
 1. Clone this repository and run the setup script
     ```
-    $ git clone https://github.com/CatixBot/Setup.git CatixSetup && cd CatixSetup
+    $ git clone https://github.com/CatixBot/getting-started-guide.git && cd getting-started-guide
     $ chmod +x ./setup.sh && sudo ./setup.sh
     ```
 2. Restart for the settings to take effect

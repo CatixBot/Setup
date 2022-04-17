@@ -1,6 +1,6 @@
 # 🚀 Getting started guide
 
-This guide walks through the process of building instance of **CatixBot** - very simple 4-legged robot for your experiments with kinematics 🦾 and computer vision 📷 (_the project is under development_)
+This guide walks through the process of building instance of [**CatixBot**](https://github.com/CatixBot) - very simple 4-legged robot for your experiments with kinematics 🦾 and computer vision 📷 (_the project is under development_)
 
 ## Electronic components
 
